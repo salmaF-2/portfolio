@@ -1,26 +1,46 @@
-import { GraduationCap, Award, BookOpen } from 'lucide-react'
+// N'oubliez pas d'importer FileText !
+import { GraduationCap, Award, BookOpen, Briefcase, Medal, FileText } from 'lucide-react';
 
 const Timeline = () => {
+
   const timelineData = [
     {
       year: "2025",
+      title: "Stage Développeuse Full Stack",
+      institution: "ViralWave",
+      description: "Développement de GreenFlo, une application de gestion de serres pour automatiser la collecte de données et les alertes en temps réel.",
+      icon: Briefcase,
+    },
+    {
+      year: "2023 - 2025",
       title: "Technicien Spécialisé en Développement Fullstack",
       institution: "Cité des Métiers et des Compétences Souss Massa",
       icon: GraduationCap,
+      certificateUrl: '/certificates/dts.pdf',
     },
     {
-      year: "2024",
+      year: "2022",
       title: "ALX Software Engineering Program",
-      description: "Formation intensive en développement fullstack",
+      description: "5 mois de formation intensive sur les fondamentaux du développement fullstack, incluant les structures de données, les algorithmes et la programmation bas niveau.",
       icon: Award,
+      certificateUrl: '/certificates/attestation_alx.pdf',
     },
     {
-      year: "2018",
+        year: "2022",
+        title: "Certifications Professionnelles",
+        institution: "Coursera",
+        description: "Obtention de certificats en Python et en langage C, renforçant les compétences en programmation structurée et orientée objet.",
+        icon: Medal,
+        certificateUrl: '/certificates/certificat_coursera.pdf',
+    },
+    {
+      year: "2019 - 2022",
       title: "Licence en Physique Fondamentale",
       institution: "Université Ibn Zohr",
       icon: BookOpen,
+      certificateUrl: '/certificates/licence.pdf',
     },
-  ]
+  ];
 
   return (
     <section id="journey" className="py-20 px-6 bg-background">
@@ -53,6 +73,20 @@ const Timeline = () => {
                   )}
                   {item.description && (
                     <p className="text-muted-foreground mt-2">{item.description}</p>
+                  )}
+
+                  
+                  {item.certificateUrl && (
+                    <a
+                      href={item.certificateUrl}
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+                    >
+                      <FileText size={16} />
+                      Voir le certificat
+                    </a>
                   )}
                 </div>
               </div>

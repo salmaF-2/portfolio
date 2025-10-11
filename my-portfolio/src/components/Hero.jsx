@@ -1,5 +1,5 @@
 import { Download, ArrowRight } from 'lucide-react'
-
+import { MdWavingHand } from 'react-icons/md';
 const Hero = () => {
   const scrollTo = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -9,42 +9,24 @@ const Hero = () => {
   }
 
   const downloadCV = () => {
-    const cvContent = `SALMA AL FADILI
-Développeuse Fullstack
-===============================
-
-CONTACT
-Email: salma.alfadili@example.com
-Localisation: Souss Massa, Maroc
-
-COMPÉTENCES
-HTML, CSS, JavaScript, React, Node.js, MongoDB
-Git, GitHub, Express.js, MySQL
-
-FORMATION
-- Technicien Spécialisé en Développement Fullstack
-- ALX Software Engineering Program
-- Licence en Physique Fondamentale`
-
-    const blob = new Blob([cvContent], { type: 'text/plain' })
-    const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
-    link.href = url
-    link.download = 'Salma_AL_FADILI_CV.txt'
+    link.href = '/cv_salmaAlfadili.pdf' 
+    link.download = 'Salma_AL_FADILI_CV.pdf'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
-    URL.revokeObjectURL(url)
   }
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 px-6 bg-gradient-to-br from-background to-primary/10">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          {/* Texte */}
-          <div className="flex-1 text-center md:text-left animate-slide-up">
+          
+          {/* --- MODIFICATION ICI --- */}
+          {/* On ajoute 'relative z-10' pour s'assurer que ce bloc est toujours au premier plan */}
+          <div className="flex-1 text-center md:text-left animate-slide-up relative z-10">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
-              Bonjour, je suis <span className="text-primary">Salma</span> 👋
+              Bonjour, je suis <span className="text-primary">Salma</span> <MdWavingHand className="inline-block" />
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-6">
               Développeuse Fullstack Passionnée
@@ -75,7 +57,11 @@ FORMATION
           <div className="flex-1 flex justify-center animate-fade-in">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-primary/20 to-primary/40 rounded-full flex items-center justify-center soft-shadow animate-float">
-                <div className="text-6xl"><img src="pic.png" alt="mypic" /></div>
+                <img 
+                  src="/pic.png" 
+                  alt="Salma Al Fadili" 
+                  className="w-full h-full object-cover rounded-full" 
+                />
               </div>
               <div className="absolute -inset-4 bg-primary/10 rounded-full -z-10 animate-pulse"></div>
             </div>

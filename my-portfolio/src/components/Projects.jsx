@@ -3,28 +3,44 @@ import { ExternalLink, Github } from 'lucide-react'
 const Projects = () => {
   const projects = [
     {
-      title: 'Boutique Bracelets Code Morse',
-      description: 'Application web créative permettant de concevoir des bracelets personnalisés en utilisant le code Morse.',
-      technologies: 'React, JavaScript, CSS, HTML',
-      emoji: '👩‍🎨'
+      title: 'GreenFlo',
+      description: 'Application web pour la gestion de serres intelligentes, avec suivi des données de capteurs en temps réel.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'IoT', 'ESP32'],
+      image: '/projects/greenflo.png', 
+      githubUrl: 'https://github.com/votre-pseudo/greenflo', // Mettez votre lien GitHub
+      liveUrl: 'https://greenflo-demo.com', // Mettez le lien de la démo
     },
     {
-      title: 'Gestionnaire d\'Emploi du Temps',
-      description: 'Application de gestion des emplois du temps, absences et notifications en temps réel.',
-      technologies: 'React, Node.js, MySQL, Express.js',
-      emoji: '📅'
+      title: 'Manzo',
+      description: 'Plateforme de mise en relation pour les services à domicile, facilitant la prise de rendez-vous.',
+      technologies: ['React', 'Node.js', 'Express.js', 'Tailwind'],
+      image: '/projects/manzo.png',
+      githubUrl: 'https://github.com/votre-pseudo/manzo',
+      liveUrl: '', // Laissez vide si pas de démo
     },
     {
-      title: 'Portfolio Personnel',
-      description: 'Site vitrine moderne et animé reflétant mon parcours et ma créativité.',
-      technologies: 'HTML, CSS, JavaScript',
-      emoji: '💼'
+      title: 'PharmaVie',
+      description: 'Site e-commerce pour la vente de produits pharmaceutiques avec gestion de stock et commandes.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind'],
+      image: '/projects/pharmavie.png',
+      githubUrl: 'https://github.com/votre-pseudo/pharmavie',
+      liveUrl: 'https://pharmavie-demo.com',
     },
     {
-      title: 'API REST Blog',
-      description: 'API RESTful complète pour la gestion d\'articles et d\'utilisateurs avec authentification.',
-      technologies: 'Node.js, Express.js, MongoDB',
-      emoji: '📝'
+      title: 'Movies App',
+      description: 'Application web pour rechercher et consulter des informations sur des films via une API externe.',
+      technologies: ['Laravel', 'MySQL', 'Bootstrap'],
+      image: '/projects/movies.png',
+      githubUrl: 'https://github.com/votre-pseudo/movies-app',
+      liveUrl: '',
+    },
+    {
+      title: 'Gestion de Bibliothèque',
+      description: 'Logiciel de bureau pour la gestion des prêts, des retours et du catalogue d\'une bibliothèque.',
+      technologies: ['Python', 'Tkinter', 'pymongo'],
+      image: '/projects/bibliotheque.png',
+      githubUrl: 'https://github.com/votre-pseudo/bibliotheque',
+      liveUrl: '',
     }
   ]
 
@@ -35,40 +51,57 @@ const Projects = () => {
           Mes projets
         </h2>
         <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-          Découvrez une sélection de mes réalisations en développement web.
+          Découvrez une sélection de mes réalisations, du front-end au back-end.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-card rounded-2xl overflow-hidden soft-shadow hover:hover-shadow transition-all duration-300 animate-fade-in"
+              className="group bg-card rounded-2xl overflow-hidden soft-shadow hover:hover-shadow transition-all duration-300 flex flex-col"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
-                <div className="text-6xl">{project.emoji}</div>
-                <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 gap-4">
-                  <button className="bg-background text-foreground px-4 py-2 rounded-lg font-medium hover:bg-primary hover:text-white transition-colors flex items-center gap-2 soft-shadow">
-                    <ExternalLink size={16} />
-                    Voir
-                  </button>
-                  <button className="bg-background text-foreground px-4 py-2 rounded-lg font-medium hover:bg-primary hover:text-white transition-colors flex items-center gap-2 soft-shadow">
-                    <Github size={16} />
-                    Code
-                  </button>
+              {/* --- MODIFICATION 1 : Image du projet --- */}
+              <div className="relative aspect-video">
+                <img 
+                  src={project.image} 
+                  alt={`Aperçu du projet ${project.title}`}
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay avec les liens qui apparaît au survol */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                  
+                  {/* --- MODIFICATION 2 : Liens fonctionnels --- */}
+                  {project.liveUrl && (
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="bg-background text-foreground px-4 py-2 rounded-lg font-medium hover:bg-primary hover:text-white transition-colors flex items-center gap-2 soft-shadow">
+                      <ExternalLink size={16} />
+                      Voir
+                    </a>
+                  )}
+                  
+                  {project.githubUrl && (
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="bg-background text-foreground px-4 py-2 rounded-lg font-medium hover:bg-primary hover:text-white transition-colors flex items-center gap-2 soft-shadow">
+                      <Github size={16} />
+                      Code
+                    </a>
+                  )}
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-3">
+              
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-semibold text-foreground mb-2">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-4 text-sm flex-grow">
                   {project.description}
                 </p>
-                <div className="flex items-center gap-2 text-sm text-primary font-medium">
-                  <span className="px-3 py-1 bg-primary/10 rounded-full">
-                    {project.technologies}
-                  </span>
+                {/* --- MODIFICATION 3 : Affichage des technologies --- */}
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>

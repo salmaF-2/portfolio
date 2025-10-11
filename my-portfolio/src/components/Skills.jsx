@@ -1,9 +1,14 @@
-import { Code2, Users, Lightbulb, MessageSquare, Palette, Crown } from 'lucide-react'
+import { Code2, Users, Lightbulb, MessageSquare, Palette, Crown, KanbanSquare } from 'lucide-react'
 
 const Skills = () => {
   const technicalSkills = [
     'HTML', 'CSS', 'Bootstrap', 'JavaScript', 'React', 
-    'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'Git & GitHub'
+    'Node.js', 'Express.js', 'Python', 'Laravel', 'Php', 'MongoDB', 'MySQL', 
+    'Git & GitHub', 'Docker', 'DevOps'
+]
+
+  const methodologies = [
+    'Scrum', 'Jira', 'UML', 'Gantt', 'PERT'
   ]
 
   const softSkills = [
@@ -22,9 +27,11 @@ const Skills = () => {
           Mes compétences
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Compétences techniques */}
-          <div className="animate-fade-in">
+        {/* --- MODIFICATION 2 : Amélioration de la grille pour 3 sections --- */}
+        <div className="grid lg:grid-cols-3 gap-12">
+          
+          {/* Compétences techniques (prend une colonne) */}
+          <div className="lg:col-span-1 animate-fade-in">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                 <Code2 className="w-6 h-6 text-primary" />
@@ -36,7 +43,6 @@ const Skills = () => {
                 <span
                   key={index}
                   className="px-4 py-2 bg-background text-foreground rounded-xl font-medium soft-shadow hover:hover-shadow hover:scale-105 transition-all duration-300"
-                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {skill}
                 </span>
@@ -44,30 +50,56 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* Soft skills */}
-          <div className="animate-fade-in">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                <Users className="w-6 h-6 text-primary" />
+          {/* Soft skills & Méthodologies (prennent deux colonnes) */}
+          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            {/* Méthodologies */}
+            <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  {/* --- AJOUT 3 : Nouvelle icône pour la section --- */}
+                  <KanbanSquare className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold text-foreground">Méthodologies</h3>
               </div>
-              <h3 className="text-2xl font-semibold text-foreground">Personnelles</h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {softSkills.map((skill, index) => {
-                const Icon = skill.icon
-                return (
-                  <div
+              <div className="flex flex-wrap gap-3">
+                {methodologies.map((skill, index) => (
+                  <span
                     key={index}
-                    className="flex items-center gap-3 p-4 bg-background rounded-xl soft-shadow hover:hover-shadow transition-all duration-300 group"
+                    className="px-4 py-2 bg-background text-foreground rounded-xl font-medium soft-shadow hover:hover-shadow hover:scale-105 transition-all duration-300"
                   >
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <span className="font-medium text-foreground">{skill.name}</span>
-                  </div>
-                )
-              })}
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
+
+            {/* Soft skills */}
+            <div className="animate-fade-in" style={{ animationDelay: '400ms' }}>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <Users className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold text-foreground">Personnelles</h3>
+              </div>
+              <div className="space-y-4">
+                {softSkills.map((skill, index) => {
+                  const Icon = skill.icon
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 p-4 bg-background rounded-xl soft-shadow hover:hover-shadow transition-all duration-300 group"
+                    >
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <span className="font-medium text-foreground">{skill.name}</span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
