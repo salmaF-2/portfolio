@@ -23,7 +23,7 @@ const Timeline = () => {
       title: "ALX Software Engineering Program",
       description: "5 mois de formation intensive sur les fondamentaux du développement fullstack, incluant les structures de données, les algorithmes et la programmation bas niveau.",
       icon: Award,
-      certificateUrl: '/certificates/attestation_alx.pdf',
+      certificateUrl: '/certificates/ALX.pdf',
     },
     {
         year: "2022",
@@ -31,7 +31,7 @@ const Timeline = () => {
         institution: "Coursera",
         description: "Obtention de certificats en Python et en langage C, renforçant les compétences en programmation structurée et orientée objet.",
         icon: Medal,
-        certificateUrl: '/certificates/certificat_coursera.pdf',
+        certificateUrl: '/certificates/coursera.pdf',
     },
     {
       year: "2019 - 2022",
@@ -79,7 +79,6 @@ const Timeline = () => {
                   {item.certificateUrl && (
                     <a
                       href={item.certificateUrl}
-                      download
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
