@@ -4,6 +4,12 @@ import { GraduationCap, Award, BookOpen, Briefcase, Medal, FileText } from 'luci
 const Timeline = () => {
 
   const timelineData = [
+     {
+      year: "2025 - 2026",
+      title: "Bachelor Ingénierie des Applications Web et Mobiles",
+      institution: "EST Salé Rabat (UM5)",
+      icon: GraduationCap,
+    },
     {
       year: "2025",
       title: "Stage Développeuse Full Stack",

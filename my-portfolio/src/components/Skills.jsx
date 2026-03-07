@@ -4,11 +4,13 @@ const Skills = () => {
   const technicalSkills = [
     'HTML', 'CSS', 'Bootstrap', 'JavaScript', 'React', 
     'Node.js', 'Express.js', 'Python', 'Laravel', 'Php', 'MongoDB', 'MySQL', 
-    'Git & GitHub', 'Docker', 'DevOps'
+    'Git & GitHub', 'Docker', 'DevOps',
+    'Java', 'J2EE', 'Android Studio (Java)', 'Swift', 'Flutter', 'React Native',
+    'UX/UI', 'Automatisation AI'
 ]
 
   const methodologies = [
-    'Scrum', 'Jira', 'UML', 'Gantt', 'PERT'
+    'Scrum', 'Jira', 'UML', 'Gantt', 'PERT', 'Mural', 'Card Sorting'
   ]
 
   const softSkills = [
