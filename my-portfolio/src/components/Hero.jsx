@@ -12,7 +12,7 @@ const Hero = () => {
 
   const downloadCV = () => {
     const link = document.createElement('a')
-    link.href = '/cv.pdf'
+    link.href = '/cv_vf.pdf'
     link.download = 'Salma_Fadili_CV.pdf'
     document.body.appendChild(link)
     link.click()
